@@ -1,0 +1,1125 @@
+{
+  "last_node_id": 293,
+  "last_link_id": 498,
+  "nodes": [
+    {
+      "id": 205,
+      "type": "VAELoader",
+      "pos": [
+        1017.2188110351562,
+        446.80145263671875
+      ],
+      "size": [
+        292.7527770996094,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            400
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 272,
+      "type": "LorasForFluxParams+",
+      "pos": [
+        305.7274169921875,
+        461.82940673828125
+      ],
+      "size": [
+        576.9744262695312,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LORA_PARAMS",
+          "type": "LORA_PARAMS",
+          "links": [
+            488
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LorasForFluxParams+"
+      },
+      "widgets_values": [
+        "FLUX -- Enhance Details and Texture -- FLUX DETAILER_V1.0.safetensors",
+        "0.1"
+      ]
+    },
+    {
+      "id": 228,
+      "type": "DualCLIPLoader",
+      "pos": [
+        142.97323608398438,
+        -128.0914764404297
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            459
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 257,
+      "type": "LLM_api_loader",
+      "pos": [
+        -886.4475708007812,
+        65.90475463867188
+      ],
+      "size": [
+        350.9960632324219,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "links": [
+            447
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLM_api_loader"
+      },
+      "widgets_values": [
+        "xxx",
+        "xxx",
+        "xxx",
+        false
+      ]
+    },
+    {
+      "id": 271,
+      "type": "CLIPTextEncode",
+      "pos": [
+        155.751953125,
+        131.73406982421875
+      ],
+      "size": [
+        451.9750671386719,
+        172.56527709960938
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 459
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 491,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            461
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "The evening dress is a strapless design with a fitted bodice and a flowing skirt. It is made of a smooth, shiny fabric that appears to be satin or silk, giving it a luxurious texture. The dress features three large floral embellishments on the left side, crafted from fabric that mimics petals and adds a touch of elegance. The floral embellishments are arranged in a cascading pattern, with the largest flower positioned at the top and the smaller ones arranged in a gradient from large to small. The waistband is adorned with intricate beadwork, adding a sparkling effect to the dress. The skirt extends into a full, flowing design with sheer fabric panels, creating a soft, ethereal appearance. The dress is a light blue color, complemented by the subtle shimmer of the beadwork and the delicate floral embellishments."
+      ]
+    },
+    {
+      "id": 202,
+      "type": "EmptyLatentImage",
+      "pos": [
+        672.409423828125,
+        249.24758911132812
+      ],
+      "size": [
+        224.85797119140625,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            402
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        }
+      ],
+      "title": "latent setup",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1928,
+        1
+      ]
+    },
+    {
+      "id": 258,
+      "type": "LLM",
+      "pos": [
+        -456.5493469238281,
+        11.211221694946289
+      ],
+      "size": [
+        502.5045471191406,
+        580.0400390625
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "link": 447
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "extra_parameters",
+          "type": "DICT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "system_prompt_input",
+          "type": "STRING",
+          "link": 453,
+          "widget": {
+            "name": "system_prompt_input"
+          },
+          "shape": 7
+        },
+        {
+          "name": "user_prompt_input",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "user_prompt_input"
+          },
+          "shape": 7
+        },
+        {
+          "name": "tools",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "tools"
+          },
+          "shape": 7
+        },
+        {
+          "name": "file_content",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "file_content"
+          },
+          "shape": 7
+        },
+        {
+          "name": "user_history",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "user_history"
+          },
+          "shape": 7
+        },
+        {
+          "name": "img_URL",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "img_URL"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "assistant_response",
+          "type": "STRING",
+          "links": [
+            491
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "history",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "tool",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "☁️DeepSeek-R1-dress prompt（服装灵感大师）",
+      "properties": {
+        "Node name for S&R": "LLM"
+      },
+      "widgets_values": [
+        "",
+        "紫色绸缎连衣裙，吊带",
+        0.9,
+        "disable",
+        "disable",
+        "enable",
+        "enable",
+        1024,
+        "",
+        "",
+        "",
+        "",
+        "",
+        2,
+        "",
+        true,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 229,
+      "type": "UNETLoader",
+      "pos": [
+        513.249267578125,
+        -171.7858123779297
+      ],
+      "size": [
+        360.62432861328125,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            493
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev-unet-fp8-e4m3fn.safetensors",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 291,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        529.4806518554688,
+        -21.073139190673828
+      ],
+      "size": [
+        461.9981384277344,
+        82
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            496
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "FLUX.1-Turbo-Alpha/diffusion_pytorch_model.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 227,
+      "type": "FluxSamplerParams+",
+      "pos": [
+        1083.7449951171875,
+        43.23708724975586
+      ],
+      "size": [
+        221.5458984375,
+        305.9210205078125
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 496,
+          "label": "model"
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 461,
+          "label": "conditioning"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 402,
+          "label": "latent_image"
+        },
+        {
+          "name": "loras",
+          "type": "LORA_PARAMS",
+          "link": 488,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            399
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "latent"
+        },
+        {
+          "name": "params",
+          "type": "SAMPLER_PARAMS",
+          "links": null,
+          "shape": 3,
+          "label": "params"
+        }
+      ],
+      "title": "🔧 Flux 生成服装参数",
+      "properties": {
+        "Node name for S&R": "FluxSamplerParams+"
+      },
+      "widgets_values": [
+        "1559259006",
+        "DEIS",
+        "DDIM_UNFORM",
+        "8",
+        "3.5",
+        "",
+        "",
+        "1.0"
+      ]
+    },
+    {
+      "id": 264,
+      "type": "load_persona",
+      "pos": [
+        -874.8945922851562,
+        255.68031311035156
+      ],
+      "size": [
+        339.1400451660156,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "file_content",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "file_content"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "system_prompt_input",
+          "type": "STRING",
+          "links": [
+            453,
+            497
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "load_persona"
+      },
+      "widgets_values": [
+        "Evening dress generation",
+        true,
+        ""
+      ]
+    },
+    {
+      "id": 292,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -877.6762084960938,
+        386.15570068359375
+      ],
+      "size": [
+        336.01275634765625,
+        183.41990661621094
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 497,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 232,
+      "type": "VAEDecode",
+      "pos": [
+        1381.74462890625,
+        159.82760620117188
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 399,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 400,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            498
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 293,
+      "type": "PreviewImage",
+      "pos": [
+        1741.1280517578125,
+        -151.83660888671875
+      ],
+      "size": [
+        473.4234313964844,
+        748.9725341796875
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 498
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      199,
+      90,
+      0,
+      58,
+      1,
+      "STRING"
+    ],
+    [
+      200,
+      90,
+      0,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      201,
+      90,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      202,
+      90,
+      0,
+      78,
+      1,
+      "STRING"
+    ],
+    [
+      203,
+      8,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      204,
+      72,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      205,
+      52,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      206,
+      62,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      110,
+      0,
+      "115:2",
+      0,
+      "NOISE"
+    ],
+    [
+      208,
+      110,
+      0,
+      "117:2",
+      0,
+      "NOISE"
+    ],
+    [
+      209,
+      110,
+      0,
+      112,
+      0,
+      "NOISE"
+    ],
+    [
+      210,
+      110,
+      0,
+      "118:2",
+      0,
+      "NOISE"
+    ],
+    [
+      211,
+      90,
+      0,
+      58,
+      1,
+      "STRING"
+    ],
+    [
+      212,
+      90,
+      0,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      213,
+      90,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      214,
+      90,
+      0,
+      78,
+      1,
+      "STRING"
+    ],
+    [
+      215,
+      110,
+      0,
+      "115:2",
+      0,
+      "NOISE"
+    ],
+    [
+      216,
+      110,
+      0,
+      "117:2",
+      0,
+      "NOISE"
+    ],
+    [
+      217,
+      110,
+      0,
+      "113:2",
+      0,
+      "NOISE"
+    ],
+    [
+      218,
+      110,
+      0,
+      "118:2",
+      0,
+      "NOISE"
+    ],
+    [
+      219,
+      8,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      220,
+      62,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      221,
+      52,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      222,
+      72,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      223,
+      90,
+      0,
+      58,
+      1,
+      "STRING"
+    ],
+    [
+      224,
+      90,
+      0,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      225,
+      90,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      226,
+      90,
+      0,
+      78,
+      1,
+      "STRING"
+    ],
+    [
+      227,
+      110,
+      0,
+      "115:2",
+      0,
+      "NOISE"
+    ],
+    [
+      228,
+      110,
+      0,
+      "117:2",
+      0,
+      "NOISE"
+    ],
+    [
+      229,
+      110,
+      0,
+      "113:2",
+      0,
+      "NOISE"
+    ],
+    [
+      230,
+      110,
+      0,
+      "118:2",
+      0,
+      "NOISE"
+    ],
+    [
+      231,
+      8,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      232,
+      62,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      233,
+      52,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      234,
+      72,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      399,
+      227,
+      0,
+      232,
+      0,
+      "LATENT"
+    ],
+    [
+      400,
+      205,
+      0,
+      232,
+      1,
+      "VAE"
+    ],
+    [
+      402,
+      202,
+      0,
+      227,
+      2,
+      "LATENT"
+    ],
+    [
+      447,
+      257,
+      0,
+      258,
+      0,
+      "CUSTOM"
+    ],
+    [
+      453,
+      264,
+      0,
+      258,
+      3,
+      "STRING"
+    ],
+    [
+      459,
+      228,
+      0,
+      271,
+      0,
+      "CLIP"
+    ],
+    [
+      461,
+      271,
+      0,
+      227,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      488,
+      272,
+      0,
+      227,
+      3,
+      "LORA_PARAMS"
+    ],
+    [
+      491,
+      258,
+      0,
+      271,
+      1,
+      "STRING"
+    ],
+    [
+      493,
+      229,
+      0,
+      291,
+      0,
+      "MODEL"
+    ],
+    [
+      496,
+      291,
+      0,
+      227,
+      0,
+      "MODEL"
+    ],
+    [
+      497,
+      264,
+      0,
+      292,
+      0,
+      "STRING"
+    ],
+    [
+      498,
+      232,
+      0,
+      293,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 8,
+      "title": "flux1-dev-fp8",
+      "bounding": [
+        104.35348510742188,
+        -256.54205322265625,
+        1545.4700927734375,
+        890.0751953125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "ds-671B-api",
+      "bounding": [
+        -920.529052734375,
+        -87.37144470214844,
+        1003.9642333984375,
+        716.1303100585938
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.47362440744767936,
+      "offset": [
+        1291.6616919262183,
+        649.5624783987496
+      ]
+    },
+    "groupNodes": {},
+    "workspace_info": {
+      "id": "GoS2G_yGEA7y8wFx4nh9C",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "node_versions": {
+      "comfy-core": "0.3.12",
+      "ComfyUI_essentials": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+      "comfyui_llm_party": "d52fd704562e19140c322f53a0072c6d0fbc5596",
+      "ComfyUI-Custom-Scripts": "bc8922deff73f59311c05cef27b9d4caaf43e87b"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
