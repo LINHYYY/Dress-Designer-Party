@@ -4,7 +4,7 @@
 
 ![image1](images/image1.png)
 
-      This repository constitutes a proprietary AI-generated application deployed for evening gown and haute couture fashion presentation scenarios, encompassing ComfyUI workflows and external URL integration. The workflow is designed with multi-modal, multi-model collaborative optimization through a multi-level closed-loop architecture:
+This repository constitutes a proprietary AI-generated application deployed for evening gown and haute couture fashion presentation scenarios, encompassing ComfyUI workflows and external URL integration. The workflow is designed with multi-modal, multi-model collaborative optimization through a multi-level closed-loop architecture:
 
 1. Leveraging LLMs such as DeepSeek-R1 under prompt engineering guidance, achieving hierarchical optimization from inspirational element texts to design concepts, and from scene descriptions to model representations.
 2. Implementing cascade generation mechanisms through FLUX.1 model ecosystem components - utilizing Fill models (partial inpainting & image extension) with Redux adapters (image variation & style migration), coordinated with In-Context-LoRA contextual generation models to maintain thematic consistency.
@@ -37,8 +37,8 @@ The code of this warehouse is open source according to Apache-2.0.
 ### **acknowledgement**
 
 Thank you to the all authors of the open source components used in the project.
-[AComfyUI_AdvancedRefluxControl](https://github.com/kaibioinfo/ComfyUI_AdvancedRefluxControl)
-[In-Context LoRA](https://github.com/ali-vilab/In-Context-LoRA)
-[CatVTON](https://github.com/Zheng-Chong/CatVTON/)
-[ViewComfy](https://github.com/ViewComfy/ViewComfy)
-[comfyui_LLM_party](https://github.com/heshengtao/comfyui_LLM_party)
+- [AComfyUI_AdvancedRefluxControl](https://github.com/kaibioinfo/ComfyUI_AdvancedRefluxControl)
+- [In-Context LoRA](https://github.com/ali-vilab/In-Context-LoRA)
+- [CatVTON](https://github.com/Zheng-Chong/CatVTON/)
+- [ViewComfy](https://github.com/ViewComfy/ViewComfy)
+- [comfyui_LLM_party](https://github.com/heshengtao/comfyui_LLM_party)
